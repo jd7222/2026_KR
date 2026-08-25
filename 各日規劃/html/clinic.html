@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEOUL — Clinic Notes</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .zh{color:var(--ink);}
+  .kr{
+    color:var(--ink-dim);
+    margin-top:6px;
+    padding-top:6px;
+    border-top:1px dashed var(--line-soft);
+  }
+  .kr::before{
+    content:"KR";
+    display:inline-block;
+    font-family:'Courier New',monospace;
+    font-size:9.5px;
+    letter-spacing:.1em;
+    color:var(--gold-deep);
+    border:1px solid var(--gold-deep);
+    border-radius:3px;
+    padding:1px 5px;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  .qa-item{
+    border-bottom:1px solid var(--line-soft);
+    padding:18px 0;
+  }
+  .qa-item:last-child{border-bottom:none;}
+  .qa-num{
+    font-family:var(--disp);
+    color:var(--gold-bright);
+    font-size:20px;
+    font-weight:700;
+    margin-right:8px;
+  }
+  .script-block{
+    background:rgba(201,162,77,0.05);
+    border-left:2px solid var(--gold-deep);
+    padding:16px 20px;
+    margin-top:14px;
+    font-size:14.5px;
+  }
+  .script-block .zh{font-style:italic;color:var(--ink);}
+  .script-block .kr{border-top:1px dashed var(--line-soft);margin-top:10px;padding-top:10px;color:var(--gold-bright);font-weight:500;}
+  .warn-line{color:var(--red);font-weight:500;}
+  ul.concerns li{margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="eyebrow">Seoul Field Manual · V&amp;MJ Consultation</p>
+  <h1>診間<em>諮詢筆記</em></h1>
+  <p class="sub">給自己看，也給醫師看 · 진료실 상담 메모</p>
+  <p class="dates">先診斷，後建議 · <span>먼저 진단, 그 다음 제안</span></p>
+</header>
+
+<nav class="tabs">
+  <div class="row">
+    <a href="GuideLine.html"><span class="num">←</span>總覽 GuideLine</a>
+    <a href="Daily.html"><span class="num">📅</span>每日行程 Daily</a>
+    <a href="nearby.html"><span class="num">✨</span>周邊玩樂 Nearby</a>
+    <a href="clinic.html" class="current"><span class="num">🩺</span>診間筆記 Clinic</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="card" style="margin-top:36px;">
+  <h3>怎麼用這頁</h3>
+  <p class="zh">這不是行程，是要<strong>當場給醫師看</strong>的諮詢筆記——先講我在意什麼、做過什麼功課，但最終療程判斷交給醫師，避免變成拿 Google 搜尋結果去指揮醫師。每段中文之後附韓文，方便直接把螢幕轉給醫師看。</p>
+  <p class="kr">이 페이지는 일정표가 아니라 <strong>진료실에서 의사에게 직접 보여줄 상담 메모</strong>입니다. 제가 무엇을 신경 쓰는지, 어떤 조사를 했는지 먼저 설명하되, 최종 시술 판단은 의사 선생님께 맡기고 싶습니다. 각 문단은 중국어 다음에 한국어가 이어지므로 화면을 그대로 보여드리면 됩니다.</p>
+  <p class="zh" style="margin-top:14px;">📌 真正目標不是「去韓國打音波」，而是<strong>先搞清楚自己的臉是怎麼老化的，再把錢花在對的層次上</strong>。</p>
+  <p class="kr">📌 진짜 목표는 '한국에서 울쎄라를 맞는 것'이 아니라, <strong>제 얼굴이 어떻게 노화되고 있는지 먼저 정확히 파악한 뒤, 맞는 시술에 돈을 쓰는 것</strong>입니다。</p>
+</div>
+
+<!-- ================= 核心目標 ================= -->
+<div class="section-title"><span class="idx">01</span><h2>核心目標 · 핵심 목표</h2><span class="rule"></span></div>
+
+<div class="card">
+  <p class="zh">我主要在意下半臉輪廓、輕微鬆弛，以及膚色、毛孔和整體膚質。原本研究後考慮 Ultherapy PRIME 大約 400 shots，再搭配 Pico，但<strong>我不想自己先決定療程</strong>——希望醫師先看臉部結構、脂肪厚度、volume 和真正的老化原因，再告訴我 Ultherapy 是否適合、需要多少 shots、哪些區域應該避開。我特別不希望因為治療造成臉頰凹陷或不必要的脂肪流失。Pico 也一樣，我只是想改善膚況，不堅持一定做 Pico；如果醫師認為其他 laser 或 RF 更適合，我希望依專業判斷來選。</p>
+  <p class="kr">저는 주로 하안면 윤곽, 경미한 처짐, 그리고 피부 톤·모공·전체적인 피부 결에 관심이 있습니다. 스스로 조사한 뒤에는 울쎄라 프라임(Ultherapy PRIME) 약 400샷과 피코(Pico) 병행을 고려했지만, <strong>제가 먼저 시술을 정하고 싶지는 않습니다.</strong> 의사 선생님께서 먼저 제 얼굴 구조, 지방 두께, 볼륨, 그리고 실제 노화 원인을 살펴보신 뒤, 울쎄라가 저에게 맞는지, 샷 수는 얼마나 필요한지, 어느 부위는 피해야 하는지 알려주셨으면 합니다. 시술로 인해 볼이 꺼지거나 불필요한 지방 손실이 생기는 것은 특히 원하지 않습니다. 피코도 마찬가지로 피부 상태 개선이 목적일 뿐, 반드시 피코를 해야 한다고 고집하지 않습니다. 다른 레이저나 RF 시술이 더 적합하다고 판단하시면 전문적인 의견에 따르겠습니다。</p>
+</div>
+
+<!-- ================= 我主要在意的問題 ================= -->
+<div class="section-title"><span class="idx">02</span><h2>我主要在意的問題 · 주요 관심사</h2><span class="rule"></span></div>
+
+<div class="card">
+  <ul class="concerns">
+    <li>
+      <p class="zh">下半臉輪廓：希望看起來更俐落、緊實。</p>
+      <p class="kr">하안면 윤곽：더 갸름하고 탄탄해 보였으면 합니다。</p>
+    </li>
+    <li>
+      <p class="zh">輕度鬆弛：尤其在意 jawline、嘴邊／法令周圍的支撐感。</p>
+      <p class="kr">경미한 처짐：특히 턱선(jawline)과 입가／팔자주름 부위의 탄력（지지력）이 신경 쓰입니다。</p>
+    </li>
+    <li>
+      <p class="zh">整體膚況：膚色不均、色素、毛孔或皮膚質感想一併改善。</p>
+      <p class="kr">전체적인 피부 상태：피부 톤 불균일, 색소, 모공, 피부결도 함께 개선하고 싶습니다。</p>
+    </li>
+    <li>
+      <p class="zh warn-line">⚠️ 不希望：為了拉提造成臉頰凹陷、脂肪流失，或變得過度削瘦。</p>
+      <p class="kr warn-line">⚠️ 원하지 않는 것：리프팅 때문에 볼이 꺼지거나 지방이 손실되어 과도하게 마른 인상이 되는 것。</p>
+    </li>
+    <li>
+      <p class="zh warn-line">⚠️ 不追求：非常戲劇性的 V-line，希望效果自然。</p>
+      <p class="kr warn-line">⚠️ 원하지 않는 것：매우 극적인 브이라인（V-line）——자연스러운 결과를 원합니다。</p>
+    </li>
+  </ul>
+</div>
+
+<!-- ================= 我原本考慮的治療方向 ================= -->
+<div class="section-title"><span class="idx">03</span><h2>我原本考慮的治療方向 · 원래 고려했던 시술 방향</h2><span class="rule"></span></div>
+
+<div class="card">
+  <p class="zh" style="color:var(--ink-faint);font-size:13px;">（做過功課，但不堅持 · 조사는 했지만 고집하지 않습니다）</p>
+</div>
+
+<div class="card">
+  <h3>1. Ultherapy PRIME</h3>
+  <p class="zh">大約想過 400 shots，目標是改善鬆弛與下顎線條。但發數不是越多越好，<strong>不堅持一定要 400 發</strong>。希望醫師依我的脂肪量、皮膚厚度與鬆弛位置決定：要不要做、做多少 shots、1.5／3.0／4.5 mm 怎麼配置、哪些地方應該避開。</p>
+  <p class="kr">약 400샷 정도를 생각했었고, 목표는 처짐 개선과 턱선 라인 개선입니다. 하지만 샷 수가 많다고 무조건 좋은 것은 아니라는 걸 알고 있어서, <strong>꼭 400샷을 고집하지는 않습니다.</strong> 제 지방량, 피부 두께, 처짐 위치에 따라 의사 선생님께서 다음을 결정해 주셨으면 합니다：시술 여부, 샷 수, 1.5／3.0／4.5 mm 팁 배분, 그리고 피해야 할 부위。</p>
+</div>
+
+<div class="card">
+  <h3>2. Pico</h3>
+  <p class="zh">原本希望順便改善膚色／色素／毛孔或整體 skin quality。但不確定自己的問題到底適合 Pico toning、fractional Pico，還是其他 laser。一樣希望由醫師先診斷，而不是我指定「一定要打 Pico」。</p>
+  <p class="kr">원래는 피부 톤／색소／모공 또는 전체적인 피부 질감(skin quality)도 함께 개선하고 싶었습니다. 다만 제 피부 문제가 피코 토닝(Pico toning), 프랙셔널 피코(fractional Pico), 아니면 다른 레이저 중 어느 것에 맞는지는 확신이 없습니다. 이 부분도 제가 "무조건 피코를 해야 한다"고 정하기보다, 의사 선생님께서 먼저 진단해 주셨으면 합니다。</p>
+</div>
+
+<!-- ================= 為什麼選 V&MJ ================= -->
+<div class="section-title"><span class="idx">04</span><h2>為什麼特別選 V&amp;MJ · V&amp;MJ를 선택한 이유</h2><span class="rule"></span></div>
+
+<div class="card">
+  <p class="zh">我選擇這裡，是因為我希望 Ultherapy 不是依照固定 package 打，而是先看臉部結構、脂肪厚度和老化型態再設計。</p>
+  <p class="kr">이곳을 선택한 이유는, 울쎄라를 정해진 패키지대로 시술받기보다 제 얼굴 구조, 지방 두께, 노화 유형을 먼저 살펴본 뒤 설계해 주시길 원하기 때문입니다。</p>
+  <p class="zh" style="margin-top:14px;"><strong>即使醫師最後覺得我不適合 Ultherapy，或認為 RF、Thermage、XERF、其他療程更適合，我也願意聽建議。</strong></p>
+  <p class="kr"><strong>만약 의사 선생님께서 제게 울쎄라가 맞지 않는다고 판단하시거나, RF, 써마지(Thermage), 엑서프(XERF) 또는 다른 시술이 더 적합하다고 생각하신다면, 그 의견도 기꺼이 따르겠습니다。</strong></p>
+  <p class="zh" style="margin-top:10px;color:var(--ink-faint);font-size:13px;">這句話的用意：告訴醫師「我不是來買機器，我是來買你的判斷」，比較容易換到真正的 consultation，而不是價目表導覽。</p>
+</div>
+
+<!-- ================= 我最希望醫師回答的 5 個問題 ================= -->
+<div class="section-title"><span class="idx">05</span><h2>我最希望醫師回答的 5 個問題 · 의사 선생님께 꼭 여쭤보고 싶은 5가지 질문</h2><span class="rule"></span></div>
+
+<div class="card">
+
+  <div class="qa-item">
+    <p class="zh"><span class="qa-num">1</span>我的臉目前主要問題到底是什麼？是皮膚鬆弛、深層組織鬆弛、脂肪堆積、脂肪下垂，還是 volume loss？</p>
+    <p class="kr">제 얼굴의 주된 문제가 정확히 무엇인가요？ 피부 처짐, 심부 조직 처짐, 지방 축적, 지방 처짐, 아니면 볼륨 손실(volume loss) 중 무엇인가요？</p>
+  </div>
+
+  <div class="qa-item">
+    <p class="zh"><span class="qa-num">2</span>Ultherapy PRIME 對我來說是不是最適合的選擇？如果不是，希望說明原因與替代方案。</p>
+    <p class="kr">울쎄라 프라임이 저에게 가장 적합한 선택인가요？ 만약 아니라면, 그 이유와 대안을 설명해 주셨으면 합니다。</p>
+  </div>
+
+  <div class="qa-item">
+    <p class="zh"><span class="qa-num">3</span>如果做 Ultherapy，哪些地方應該打、哪些地方不應該打？特別希望避免 cheek hollowing／fat loss。</p>
+    <p class="kr">울쎄라를 한다면 어느 부위에 시술해야 하고 어느 부위는 피해야 하나요？ 특히 볼 꺼짐(cheek hollowing)／지방 손실은 꼭 피하고 싶습니다。</p>
+  </div>
+
+  <div class="qa-item">
+    <p class="zh"><span class="qa-num">4</span>我真的需要 400 shots 嗎？300、400、500 的差別在我的臉上是什麼，而不是套餐差別。</p>
+    <p class="kr">제가 정말 400샷이 필요한가요？ 패키지상의 차이가 아니라, 300／400／500샷이 제 얼굴에서는 실제로 어떤 차이를 만드나요？</p>
+  </div>
+
+  <div class="qa-item">
+    <p class="zh"><span class="qa-num">5</span>我的膚質問題真正適合哪種 laser？Pico、BBL、其他 pigment laser 或 RF microneedling，請醫師根據問題選，而不是因為我原本說想做 Pico。</p>
+    <p class="kr">제 피부 문제에는 어떤 레이저가 진짜로 맞나요？ 피코, BBL, 다른 색소 레이저, 혹은 RF 마이크로니들링 중에서 제가 처음에 피코를 언급했다고 해서가 아니라, 실제 문제에 맞춰 선생님께서 선택해 주셨으면 합니다。</p>
+  </div>
+
+</div>
+
+<!-- ================= 診間簡短口述版 ================= -->
+<div class="section-title"><span class="idx">06</span><h2>診間簡短口述版 · 진료실에서 바로 보여드릴 요약본</h2><span class="rule"></span></div>
+
+<div class="card">
+  <p class="zh" style="color:var(--ink-faint);font-size:13px;">如果只想很簡短地講，這段可以直接把螢幕轉給醫師看 · 짧게 전달하고 싶다면 이 화면을 그대로 보여드리면 됩니다</p>
+  <div class="script-block">
+    <p class="zh">我主要在意下半臉輪廓、輕微鬆弛，以及膚色、毛孔和整體膚質。原本研究後考慮 Ultherapy PRIME 大約 400 shots，再搭配 Pico，但我不想自己先決定療程。</p>
+    <p class="zh">我比較希望醫師先看我的臉部結構、脂肪厚度、volume 和真正的老化原因，再告訴我 Ultherapy 是否適合、需要多少 shots、哪些區域應該避開。我特別不希望因為 treatment 造成臉頰凹陷或不必要的 fat loss。</p>
+    <p class="zh">Pico 也是一樣，我只是想改善膚況，不堅持一定做 Pico。如果醫師認為其他 laser 或 RF 更適合，我希望依專業判斷來選。</p>
+    <p class="kr">저는 주로 하안면 윤곽, 경미한 처짐, 그리고 피부 톤・모공・전체 피부 결이 신경 쓰입니다. 스스로 조사한 후 울쎄라 프라임 약 400샷과 피코 병행을 고려했지만, 제가 먼저 시술을 정하고 싶지는 않습니다.</p>
+    <p class="kr">의사 선생님께서 먼저 제 얼굴 구조, 지방 두께, 볼륨, 그리고 실제 노화 원인을 봐주신 뒤, 울쎄라가 맞는지, 샷 수는 얼마나 필요한지, 어느 부위를 피해야 하는지 알려주시면 좋겠습니다. 시술로 볼이 꺼지거나 불필요한 지방 손실이 생기는 것은 특히 원하지 않습니다.</p>
+    <p class="kr">피코도 마찬가지로 피부 상태 개선이 목적일 뿐, 꼭 피코를 해야 한다고 고집하지 않습니다. 다른 레이저나 RF가 더 적합하다고 판단하시면 전문적인 의견을 따르겠습니다。</p>
+  </div>
+</div>
+
+<!-- ================= 提醒自己 ================= -->
+<div class="section-title"><span class="idx">07</span><h2>提醒自己</h2><span class="rule"></span></div>
+
+<div class="card">
+  <ul>
+    <li>這份筆記的目的是讓醫師<strong>先診斷、後建議</strong>，不是照單全收我原本想的 Ultherapy 400 發＋Pico。</li>
+    <li>帶著這 5 個問題進診間，聽完醫師解釋後再決定，不要被套餐報價牽著走。</li>
+    <li>預算基準與報價判斷邏輯 → 詳見醫美安排文件。</li>
+    <li>術後注意事項（防曬、飲酒、運動限制）以診所當天指示為準。</li>
+  </ul>
+</div>
+
+</div>
+
+<footer class="pagefoot">
+  <div class="rule"></div>
+  Seoul Field Manual · Solo Edition · 2026 Autumn
+</footer>
+
+<a href="#" class="back-top" title="回頂端">↑</a>
+
+</body>
+</html>
