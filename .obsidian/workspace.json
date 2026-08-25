@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "af9c273a8ffe2335",
+    "type": "split",
+    "children": [
+      {
+        "id": "c5c402c034353970",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4675507db23238e1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "各日規劃/1102_醫美採購/12_論峴刀切麵_午餐_2/地點資訊.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "地點資訊"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "11259862ceec19a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "ab671222eb3ae04a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2fa8c631c0cf9840",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "檔案瀏覽器"
+            }
+          },
+          {
+            "id": "49148f4737daf38d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜尋"
+            }
+          },
+          {
+            "id": "e79631189e1fccd5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "書籤"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0e4220cead793f7c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e77d741356a8c788",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c5358a643386da79",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "各日規劃/1102_醫美採購/12_論峴刀切麵_午餐_2/地點資訊.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向連結"
+            }
+          },
+          {
+            "id": "1413a156e36d4a86",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "各日規劃/1102_醫美採購/12_論峴刀切麵_午餐_2/地點資訊.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "對外連結"
+            }
+          },
+          {
+            "id": "b1ba62479062fdcc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "標籤"
+            }
+          },
+          {
+            "id": "1a46bdc942a0cd16",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "所有屬性"
+            }
+          },
+          {
+            "id": "1f14370ce316897c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "各日規劃/1102_醫美採購/12_論峴刀切麵_午餐_2/地點資訊.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大綱"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:開啟快速切換": false,
+      "graph:查看關聯圖": false,
+      "canvas:建立新畫布": false,
+      "daily-notes:開啟今天的每日筆記": false,
+      "templates:插入模板": false,
+      "command-palette:開啟命令面板": false,
+      "bases:建立新的 base": false
+    }
+  },
+  "active": "2fa8c631c0cf9840",
+  "lastOpenFiles": [
+    "2026KR",
+    "各日規劃/1103_回台灣/08_Fairfield永登浦_退房/image.jpg",
+    "各日規劃/1029_古宮韓屋/20_乙支路Nogari巷_酒吧/image.jpg",
+    "各日規劃/1028_抵達首爾/20_機場巴士6007_交通/image.jpg",
+    "各日規劃/1103_回台灣/08_機場巴士6007_交通/image.jpg",
+    "各日規劃/1028_抵達首爾/22_Fairfield永登浦_入住/image.jpg",
+    "各日規劃/1031_水原朋友/18_池洞市場_晚餐/image.jpg",
+    "各日規劃/html/Daily.html",
+    "各日規劃/html/style.css.tmp.29616.03344ddeb613",
+    "各日規劃/html/GuideLine.html",
+    "各日規劃/html/style.css",
+    "各日規劃/html",
+    "各日規劃/1103_回台灣/12_仁川機場_登機/image.jpg",
+    "各日規劃/1030_西首爾散策/18_骨目集_晚餐_1/image.jpg",
+    "各日規劃/1030_西首爾散策/15_文來洞_景點/image.jpg",
+    "各日規劃/1102_醫美採購/15_狎鷗亭新沙_購物/image.jpg",
+    "各日規劃/1102_醫美採購/15_狎鷗亭新沙_購物/地點資訊.md",
+    "各日規劃/1102_醫美採購/18_文來Bar_晚餐_2/背景與介紹.md",
+    "各日規劃/1102_醫美採購/18_文來Bar_晚餐_2/地點資訊.md",
+    "各日規劃/1102_醫美採購/18_文來Bar_晚餐_2/交通資訊.md",
+    "各日規劃/1029_古宮韓屋/12_安岩_午餐_1/地點資訊.md",
+    "各日規劃/1029_古宮韓屋/11_北村_景點/地點資訊.md",
+    "各日規劃/1029_古宮韓屋/09_昌德宮_景點/地點資訊.md",
+    "各日規劃/1029_古宮韓屋/09_昌德宮_景點/交通資訊.md",
+    "各日規劃/1029_古宮韓屋/09_昌德宮_景點/背景與介紹.md",
+    "各日規劃/1029_古宮韓屋/11_北村_景點/背景與介紹.md",
+    "各日規劃/1029_古宮韓屋/11_北村_景點/交通資訊.md",
+    "各日規劃/1030_西首爾散策/11_漢江_散步/背景與介紹.md",
+    "各日規劃/1101_安養川鷺梁津/08_메이븐행궁本店_早餐_2/交通資訊.md.tmp.1792.bdcd300fd784",
+    "各日規劃/1031_水原朋友/12_達達廚房_午餐_3/地點資訊.md.tmp.1792.b7edc7b6a016",
+    "各日規劃/1030_西首爾散策/20_OldMullae_酒吧/地點資訊.md.tmp.1792.7ff14a7acff2",
+    "各日規劃/1030_西首爾散策/08_Hangugbab_早餐_2/交通資訊.md.tmp.1792.2597546835d7",
+    "各日規劃/1029_古宮韓屋/12_BukchonSonmandu_午餐_2/地點資訊.md.tmp.1792.3b27bebadb9a",
+    "各日規劃/1103_回台灣/12_仁川機場_登機/背景與介紹.md",
+    "各日規劃/1103_回台灣/12_仁川機場_登機/交通資訊.md",
+    "各日規劃/1103_回台灣/12_仁川機場_登機/地點資訊.md",
+    "各日規劃/1103_回台灣/08_機場巴士6007_交通/背景與介紹.md",
+    "各日規劃/1103_回台灣/08_機場巴士6007_交通/交通資訊.md",
+    "各日規劃/1103_回台灣/08_機場巴士6007_交通/地點資訊.md",
+    "各日規劃/1103_回台灣/08_Fairfield永登浦_退房/背景與介紹.md",
+    "各日規劃/1103_回台灣/08_Fairfield永登浦_退房/交通資訊.md",
+    "各日規劃/1103_回台灣/08_Fairfield永登浦_退房/地點資訊.md",
+    "各日規劃/1102_醫美採購/18_好水蔘雞湯_晚餐_1/背景與介紹.md",
+    "各日規劃/1102_醫美採購/18_好水蔘雞湯_晚餐_1/交通資訊.md",
+    "各日規劃/1102_醫美採購/18_好水蔘雞湯_晚餐_1/地點資訊.md",
+    "各日規劃/1102_醫美採購/15_狎鷗亭新沙_購物/背景與介紹.md"
+  ]
+}
