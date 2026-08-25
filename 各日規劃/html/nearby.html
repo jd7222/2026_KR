@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEOUL — Nearby</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- Nearby.html 專屬：跟其他頁同一個家族，但調亮、調活 ---------- */
+  :root{
+    --vibe-pink:#ff5d8f;
+    --vibe-teal:#38d6c0;
+    --vibe-purple:#a678ff;
+    --vibe-orange:#ffa93e;
+    --vibe-blue:#4fb8ff;
+  }
+
+  /* 頂部標頭疊一層活力漸層，但底色維持跟其他頁一樣暗，才不會突兀 */
+  header.masthead.nb::before{
+    background:
+      radial-gradient(600px 260px at 12% 0%, rgba(255,93,143,0.16), transparent 60%),
+      radial-gradient(600px 300px at 88% 10%, rgba(56,214,192,0.14), transparent 60%),
+      repeating-linear-gradient(90deg, rgba(201,162,77,0.035) 0 1px, transparent 1px 80px);
+  }
+  .nb-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--sans);font-size:12px;letter-spacing:.08em;
+    color:#1a1508;background:linear-gradient(90deg,var(--vibe-pink),var(--vibe-orange));
+    padding:6px 16px;border-radius:999px;margin:0 0 22px;font-weight:700;
+    box-shadow:0 4px 18px rgba(255,93,143,0.25);
+  }
+  .masthead h1 em.nb-em{
+    background:linear-gradient(90deg,var(--vibe-pink),var(--vibe-purple) 45%,var(--vibe-teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    font-style:normal;
+  }
+
+  /* 距離圖例列 */
+  .legend{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+    margin-top:22px;
+  }
+  .legend .pill{
+    font-size:11.5px;color:var(--ink-dim);
+    border:1px dashed var(--line);border-radius:999px;
+    padding:6px 14px;background:rgba(255,255,255,0.02);
+  }
+  .legend .pill b{color:var(--gold-bright);}
+
+  /* 分類彩色小圓標 */
+  .vibe-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;}
+  .vibe-tag{
+    font-size:11px;font-weight:600;letter-spacing:.04em;
+    padding:5px 13px;border-radius:999px;color:#0e0d0b;
+  }
+  .vibe-tag.shop{background:linear-gradient(90deg,var(--vibe-teal),#7be3d6);}
+  .vibe-tag.food{background:linear-gradient(90deg,var(--vibe-orange),#ffcf87);}
+  .vibe-tag.drink{background:linear-gradient(90deg,var(--vibe-purple),#c9a8ff);}
+  .vibe-tag.view{background:linear-gradient(90deg,var(--vibe-blue),#a7dcff);}
+  .vibe-tag.night{background:linear-gradient(90deg,var(--vibe-pink),#ff9dbb);}
+
+  /* 距離／交通 chip，取代日行程頁的樸素時間標籤 */
+  .go-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Courier New',monospace;font-size:12px;font-weight:700;
+    color:#0e0d0b;background:linear-gradient(90deg,var(--gold-bright),var(--vibe-orange));
+    padding:4px 12px;border-radius:999px;
+  }
+
+  /* 元氣 / 熱鬧度 —— 用⚡表示晚上有多嗨，方便術後或累了快速判斷 */
+  .energy{
+    display:flex;align-items:center;gap:6px;
+    font-size:12px;color:var(--ink-faint);margin:2px 0 0;
+  }
+  .energy .bolts{letter-spacing:2px;filter:saturate(1.4);}
+
+  /* 卡片 hover：比其他頁更跳一點，強調「可以隨興晃過去」 */
+  .nb-wrap .loc{
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .nb-wrap .loc:hover{
+    transform:translateY(-3px);
+    border-color:var(--vibe-pink);
+    box-shadow:0 10px 30px rgba(255,93,143,0.12);
+  }
+  .nb-wrap .loc.is-must{border-color:var(--vibe-pink);box-shadow:0 0 0 1px rgba(255,93,143,0.25);}
+  .nb-wrap .must-ribbon{background:linear-gradient(90deg,var(--vibe-pink),var(--vibe-orange));color:#1a1508;}
+
+  /* 使用建議表格 —— 彩色小卡取代純表格的嚴肅感 */
+  .cheat-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:14px;margin-top:18px;
+  }
+  .cheat-card{
+    border:1px solid var(--line);border-radius:10px;
+    background:linear-gradient(180deg,var(--surface),var(--surface-2));
+    padding:18px 20px;position:relative;overflow:hidden;
+  }
+  .cheat-card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--vibe-pink),var(--vibe-teal));
+  }
+  .cheat-card .situation{font-size:12.5px;color:var(--ink-dim);margin:0 0 8px;}
+  .cheat-card .pick{font-family:var(--serif);font-size:16px;color:var(--gold-bright);font-weight:700;}
+
+  .nb-callout{
+    margin-top:26px;padding:18px 22px;border-radius:10px;
+    background:linear-gradient(120deg, rgba(255,93,143,0.10), rgba(56,214,192,0.08));
+    border:1px solid rgba(255,93,143,0.28);
+    font-size:13.5px;color:var(--ink);
+  }
+  .nb-callout b{color:var(--vibe-pink);}
+</style>
+</head>
+<body>
+
+<header class="masthead nb">
+  <p class="eyebrow">Seoul Field Manual · After Dark / Off Duty</p>
+  <span class="nb-badge">✨ NEARBY · 隨興晃出去</span>
+  <h1>周邊<em class="nb-em">玩樂</em></h1>
+  <p class="sub">從 Fairfield 永登浦出發，40 分鐘內能吃能喝能亂晃的 7 個地方</p>
+  <div class="legend">
+    <span class="pill">🚶 <b>步行</b> 5-12 分</span>
+    <span class="pill">🚇 <b>近</b> 10-25 分</span>
+    <span class="pill">🚇 <b>遠</b> 30-35 分</span>
+    <span class="pill">全部 ≤ <b>40 分鐘</b> 大眾運輸</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="row">
+    <a href="GuideLine.html"><span class="num">←</span>總覽 GuideLine</a>
+    <a href="Daily.html"><span class="num">📅</span>每日行程 Daily</a>
+    <a href="#n01" class="current"><span class="num">01</span>TimeSquare</a>
+    <a href="#n02"><span class="num">02</span>傳統市場</a>
+    <a href="#n03"><span class="num">03</span>D-Cube</a>
+    <a href="#n04"><span class="num">04</span>文來夜巷</a>
+    <a href="#n05"><span class="num">05</span>汝矣島</a>
+    <a href="#n06"><span class="num">06</span>明洞</a>
+    <a href="#n07"><span class="num">07</span>弘大</a>
+  </div>
+</nav>
+
+<div class="wrap nb-wrap">
+
+<div class="card" style="margin-top:36px;">
+  <h3>怎麼用這頁</h3>
+  <p>不是正式行程，是<strong>「還想出去晃晃」的口袋清單</strong>——提早收工回飯店、或休息一陣後想再出門，翻這頁挑一個就好。7 個地點依交通時間<strong>由近到遠</strong>排列，每個都附 Google Map QR code、從飯店出發的交通方式，以及韓文店名／地名（比發音更可靠，直接把手機轉給對方看）。</p>
+</div>
+
+<!-- ============ 01 永登浦 Time Square ============ -->
+<div class="loc" id="n01">
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/01_永登浦TimeSquare_購物/image.jpg" alt="永登浦 Time Square">
+    <div class="loc-qr"><img src="../../周邊玩樂/01_永登浦TimeSquare_購物/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">01_영등포타임스퀘어</span><span class="go-chip">🚶 步行 8-10 分</span></div>
+    <h3 class="loc-name">永登浦 Time Square</h3>
+    <p class="loc-addr">首爾永登浦區永中路15 · 百貨約 10:30～22:00</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag shop">購物</span>
+      <span class="vibe-tag drink">咖啡</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">영등포 타임스퀘어</span><span class="kr-zh">Time Square</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>步行直達，不需搭車，晚餐後散步過去剛好。</p>
+    <div class="loc-story">
+      <p>新世界百貨、教保文庫書店、CGV 影城、美食街、多間連鎖咖啡廳與酒吧全部一棟搞定——下雨天或懶得再出遠門時的萬用備案，逛街、喝咖啡、看場深夜電影都行。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡</span>輕鬆、不費體力，適合任何一天晚上</div>
+  </div>
+</div>
+
+<!-- ============ 02 永登浦傳統市場 ============ -->
+<div class="loc" id="n02">
+  <div class="loc-media">
+    <div class="noimg">— 傳統市場 ·<br>無圖片，QR 可正常導航 —</div>
+    <div class="loc-qr"><img src="../../周邊玩樂/02_永登浦傳統市場_市場小吃/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">02_영등포전통시장</span><span class="go-chip">🚶 步行 10-12 分</span></div>
+    <h3 class="loc-name">永登浦傳統市場</h3>
+    <p class="loc-addr">首爾永登浦區永登浦洞一帶 · 多數攤位約 09:00～20:00</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag food">市場小吃</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">영등포전통시장</span><span class="kr-zh">永登浦傳統市場</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>步行即達，或搭一站地鐵至永登浦市場站（5號線）。</p>
+    <div class="loc-story">
+      <p>生鮮、小吃攤、在地五金雜貨行混雜的真實市場，不是觀光市場。跟 Time Square 完全不同的「庶民永登浦」，適合吃完晚餐後散步消化。<strong>晚上 8 點後多數攤位已收</strong>，想吃東西建議傍晚前去。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡</span>最放鬆版本，適合累的那天</div>
+  </div>
+</div>
+
+<!-- ============ 03 新道林 D-Cube City ============ -->
+<div class="loc" id="n03">
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/03_新道林DCubeCity_購物/image.jpg" alt="新道林 D-Cube City">
+    <div class="loc-qr"><img src="../../周邊玩樂/03_新道林DCubeCity_購物/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">03_디큐브시티</span><span class="go-chip">🚇 地鐵 10-15 分</span></div>
+    <h3 class="loc-name">新道林 D-Cube City</h3>
+    <p class="loc-addr">首爾九老區京仁路662 · 約 10:30～22:00</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag shop">購物 / Outlet</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">디큐브시티</span><span class="kr-zh">D-Cube City</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>地鐵1號線至新道林站（신도림역），約 2 站、5 分鐘車程，出站直通購物中心。</p>
+    <div class="loc-story">
+      <p>現代百貨 Outlet＋大型商場，品牌折扣比市區百貨划算，另有美食街與超市——想順便補貨、買點藥妝或平價衣物的空檔很好用。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡</span>輕鬆逛街，不用特別打扮</div>
+  </div>
+</div>
+
+<!-- ============ 04 文來創作村（夜巷版） ============ -->
+<div class="loc is-must" id="n04">
+  <div class="must-ribbon">✦ 晚上限定</div>
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/04_文來創作村夜巷_咖啡酒吧/image.jpg" alt="文來創作村">
+    <div class="loc-qr"><img src="../../周邊玩樂/04_文來創作村夜巷_咖啡酒吧/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">04_문래창작촌</span><span class="go-chip">🚇 地鐵 15-20 分</span></div>
+    <h3 class="loc-name">文來創作村（夜巷版）</h3>
+    <p class="loc-addr">首爾永登浦區文來洞一帶 · 咖啡廳／酒吧多營業至深夜</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag drink">咖啡</span>
+      <span class="vibe-tag night">酒吧</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">문래창작촌</span><span class="kr-zh">文來創作村</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>地鐵2號線至文來站（문래역），從永登浦搭公車或計程車約 10 分鐘可達站區，或步行至永登浦區廳站轉乘。</p>
+    <div class="loc-story">
+      <p>與 10/30 白天走的路線不同——晚上的文來洞是鐵工廠鐵捲門拉下、壁畫燈光亮起、小酒吧陸續開門的另一種樣子。如果白天沒走完或想再去，晚上單獨過來喝一杯，氣氛完全不同。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡⚡</span>有點気氛、值得專程走一趟</div>
+  </div>
+</div>
+
+<!-- ============ 05 汝矣島漢江公園 ============ -->
+<div class="loc is-must" id="n05">
+  <div class="must-ribbon">✦ 免費夜景</div>
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/05_汝矣島漢江公園_散步夜景/image.jpg" alt="汝矣島漢江公園夜景">
+    <div class="loc-qr"><img src="../../周邊玩樂/05_汝矣島漢江公園_散步夜景/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">05_여의도한강공원</span><span class="go-chip">🚇 地鐵 20-25 分</span></div>
+    <h3 class="loc-name">汝矣島漢江公園＋더현대서울</h3>
+    <p class="loc-addr">首爾永登浦區汝矣島洞一帶 · 公園全天開放；百貨約 10:30～20:00</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag view">散步 / 夜景</span>
+      <span class="vibe-tag shop">百貨</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">여의도한강공원</span><span class="kr-zh">汝矣島漢江公園</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>地鐵5號線至汝矣渡口站（여의나루역）或汝矣島站（여의도역），從永登浦區廳站轉乘約 2～3 站。</p>
+    <div class="loc-story">
+      <p>漢江夜景＋63大廈燈光，河濱長椅坐著吹風最放鬆；더현대서울是首爾人氣最高的百貨之一，室內有大片綠植中庭，逛街兼躲雨都合適。晚上想安靜散步、白天想室內逛街都能來。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡</span>安靜系，術後恢復日也適合</div>
+  </div>
+</div>
+
+<!-- ============ 06 明洞 ============ -->
+<div class="loc" id="n06">
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/06_明洞_購物美食/image.jpg" alt="明洞街景">
+    <div class="loc-qr"><img src="../../周邊玩樂/06_明洞_購物美食/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">06_명동거리</span><span class="go-chip">🚇 地鐵 30-35 分・免轉乘</span></div>
+    <h3 class="loc-name">明洞</h3>
+    <p class="loc-addr">首爾中區明洞一帶 · 店家多營業至 22:00～23:00</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag shop">購物</span>
+      <span class="vibe-tag food">街頭小吃</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">명동거리</span><span class="kr-zh">明洞</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>地鐵1號線直達明洞站（명동역），<strong>全程不需轉乘</strong>，約 33 分鐘。</p>
+    <div class="loc-story">
+      <p>美妝店、街頭小吃（辣炒年糕、雞蛋糕、起司龍蝦）、國際品牌旗艦店，觀光氣氛最濃厚的一區。1號線直達不用轉車是最大優點，晚上人潮邊走邊吃很方便，但假日較擁擠。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡⚡</span>還有力氣才安排，逛起來要走不少路</div>
+  </div>
+</div>
+
+<!-- ============ 07 弘大 ============ -->
+<div class="loc" id="n07">
+  <div class="loc-media">
+    <img class="photo" src="../../周邊玩樂/07_弘大_購物夜生活/image.jpg" alt="弘大街景">
+    <div class="loc-qr"><img src="../../周邊玩樂/07_弘大_購物夜生活/qr_location.jpg" alt="地圖 QR"></div>
+  </div>
+  <div class="loc-body">
+    <div class="loc-kicker"><span class="code">07_홍대걷고싶은거리</span><span class="go-chip">🚇 地鐵 30-35 分</span></div>
+    <h3 class="loc-name">弘大（弘益大學商圈）</h3>
+    <p class="loc-addr">首爾麻浦區西橋洞一帶 · 20:00 後最有氣氛</p>
+    <div class="vibe-tags">
+      <span class="vibe-tag night">夜生活</span>
+      <span class="vibe-tag shop">選物店</span>
+    </div>
+    <div class="kr-flash">
+      <div class="kr-item"><span class="kr-label">地名</span><span class="kr-word">홍대 걷고싶은거리</span><span class="kr-zh">弘大自由行街</span></div>
+    </div>
+    <p class="loc-transport"><b>從飯店出發：</b>地鐵1號線至新道林站轉2號線，至弘大入口站（홍대입구역），約 30～35 分鐘。</p>
+    <div class="loc-story">
+      <p>年輕、有活力的大學商圈——服飾選物店、live 表演、路邊街頭藝人、深夜也熱鬧的酒吧與夜店一條街。距離最遠、車程也最接近 40 分鐘上限，<strong>建議只在還有體力、想感受「首爾夜生活」時安排</strong>，術後或走累的日子不要勉強跑這麼遠。</p>
+    </div>
+    <div class="energy"><span class="bolts">⚡⚡⚡⚡</span>最嗨、也最累，體力全滿那天再去</div>
+  </div>
+</div>
+
+<div class="section-title" style="margin-top:60px;"><span class="idx">✦</span><h2>今晚選哪個？</h2><span class="rule"></span></div>
+
+<div class="cheat-grid">
+  <div class="cheat-card">
+    <p class="situation">只想走 10 分鐘、吃點東西就回房</p>
+    <p class="pick">01 Time Square ・ 02 傳統市場</p>
+  </div>
+  <div class="cheat-card">
+    <p class="situation">想順便買點東西、不想跑遠</p>
+    <p class="pick">03 D-Cube City</p>
+  </div>
+  <div class="cheat-card">
+    <p class="situation">晚餐後想喝一杯、感受在地氣氛</p>
+    <p class="pick">04 文來創作村（夜巷版）</p>
+  </div>
+  <div class="cheat-card">
+    <p class="situation">想看夜景、安靜散步</p>
+    <p class="pick">05 汝矣島漢江公園</p>
+  </div>
+  <div class="cheat-card">
+    <p class="situation">還有力氣，想逛街＋吃街頭小吃</p>
+    <p class="pick">06 明洞</p>
+  </div>
+  <div class="cheat-card">
+    <p class="situation">體力最好的一晚，想感受年輕夜生活</p>
+    <p class="pick">07 弘大</p>
+  </div>
+</div>
+
+<div class="nb-callout">
+  📌 <b>11/2 醫美當天晚上</b>請優先選 <b>01、02、05</b>（近、不費體力）；<b>06、07</b> 車程接近 40 分鐘上限，術後不建議安排。
+</div>
+
+</div>
+
+<footer class="pagefoot">
+  <div class="rule"></div>
+  Seoul Field Manual · Solo Edition · 2026 Autumn
+</footer>
+
+<a href="#" class="back-top" title="回頂端">↑</a>
+
+</body>
+</html>
