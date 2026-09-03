@@ -1,10 +1,11 @@
 // Keeps the sticky top nav's "current" tab in sync with whichever
 // section/anchor is actually scrolled into view. Works on any page whose
-// nav.tabs links point to in-page #anchors (Daily.html day tabs,
-// GuideLine.html notice/prep/days, nearby.html n01-n07).
+// nav.tabs (single-tier) or nav.tabs-local (two-tier: global page-switcher
+// + local section tabs) links point to in-page #anchors (Daily.html day
+// tabs, GuideLine.html notice/prep/days, nearby.html n01-n07).
 (function () {
   var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('nav.tabs a[href^="#"]')
+    document.querySelectorAll('nav.tabs a[href^="#"], nav.tabs-local a[href^="#"]')
   );
   if (!navLinks.length) return;
 
@@ -43,8 +44,12 @@
     },
     {
       // trigger a section as "active" once it's scrolled just below the
-      // sticky nav bar, and stop counting it once it's mostly scrolled past
-      rootMargin: '-64px 0px -70% 0px',
+      // sticky nav bar(s), and stop counting it once it's mostly scrolled past.
+      // -84px accounts for the two-tier sticky header (38px global + ~45px
+      // local) on Daily.html/GuideLine.html; single-tier pages have a shorter
+      // header so this just means their sections trigger a bit earlier, which
+      // is harmless.
+      rootMargin: '-84px 0px -70% 0px',
       threshold: 0,
     }
   );

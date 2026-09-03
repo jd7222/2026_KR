@@ -119,6 +119,56 @@ nav.tabs a:hover{color:var(--gold-bright);text-decoration:none;}
 nav.tabs a.current{color:var(--gold-bright);border-bottom-color:var(--gold);}
 nav.tabs .num{color:var(--gold);font-family:var(--serif);margin-right:6px;}
 
+/* ---------- two-tier nav: global page-switcher + local section tabs ---------- */
+nav.tabs-global{
+  position:sticky;top:0;z-index:52;
+  height:38px;
+  background:rgba(9,8,7,0.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  overflow-x:auto;white-space:nowrap;scrollbar-width:none;
+}
+nav.tabs-global::-webkit-scrollbar{display:none;}
+nav.tabs-global .row{
+  max-width:760px;margin:0 auto;padding:0 22px;
+  display:flex;align-items:stretch;gap:2px;height:100%;
+}
+nav.tabs-global a{
+  display:flex;align-items:center;
+  padding:0 14px;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+}
+nav.tabs-global a:hover{color:var(--gold-bright);text-decoration:none;}
+nav.tabs-global a.current{color:var(--gold-bright);border-bottom-color:var(--gold);}
+nav.tabs-global .num{margin-right:5px;}
+
+nav.tabs-local{
+  position:sticky;top:38px;z-index:50;
+  background:rgba(16,15,13,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  overflow-x:auto;white-space:nowrap;scrollbar-width:none;
+}
+nav.tabs-local::-webkit-scrollbar{display:none;}
+nav.tabs-local .row{max-width:760px;margin:0 auto;padding:0 22px;display:flex;gap:2px;}
+nav.tabs-local a{
+  display:inline-block;
+  padding:14px 18px 12px;
+  font-size:13px;
+  letter-spacing:.06em;
+  color:var(--ink-dim);
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+}
+nav.tabs-local a:hover{color:var(--gold-bright);text-decoration:none;}
+nav.tabs-local a.current{color:var(--gold-bright);border-bottom-color:var(--gold);}
+nav.tabs-local .num{color:var(--gold);font-family:var(--serif);margin-right:6px;}
+
 /* ---------- section title ---------- */
 .section-title{
   display:flex;align-items:baseline;gap:16px;
