@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judd's Travel Plans</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Baloo+2:wght@600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap');
+
+*{box-sizing:border-box;}
+html{color-scheme:light dark;}
+body{
+  margin:0;
+  min-height:100vh;
+  padding-block:max(48px, env(safe-area-inset-top)) max(48px, env(safe-area-inset-bottom));
+  padding-inline:20px;
+  background:#12110f;
+  background:
+    radial-gradient(900px 500px at 12% -10%, rgba(201,162,77,0.10), transparent 55%),
+    radial-gradient(800px 480px at 100% 0%, rgba(239,106,90,0.08), transparent 55%),
+    #12110f;
+  color:#eee7d8;
+  font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.wrap{max-width:640px;width:100%;text-align:center;}
+.eyebrow{
+  font-family:'Baloo 2',sans-serif;
+  font-weight:700;
+  font-size:12.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#c9a24d;
+  margin:0 0 14px;
+}
+h1{
+  font-family:'Noto Serif TC',serif;
+  font-weight:900;
+  font-size:clamp(28px,6vw,42px);
+  margin:0 0 12px;
+  color:#eee7d8;
+}
+.lead{
+  color:#a89f8c;
+  font-size:15px;
+  max-width:440px;
+  margin:0 auto 40px;
+  line-height:1.7;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr;}
+}
+a.trip{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(201,162,77,0.22);
+  border-radius:20px;
+  padding:32px 24px;
+  text-align:left;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+a.trip:hover{
+  transform:translateY(-4px);
+  border-color:#c9a24d;
+  background:rgba(201,162,77,0.06);
+}
+a.trip .flag{font-size:34px;display:block;margin-bottom:14px;}
+a.trip h2{
+  font-family:'Noto Serif TC',serif;
+  font-weight:700;
+  font-size:21px;
+  margin:0 0 8px;
+  color:#eee7d8;
+}
+a.trip .dates{
+  font-family:'Baloo 2',sans-serif;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:#c9a24d;
+  margin-bottom:10px;
+  display:block;
+}
+a.trip p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.6;
+  color:#a89f8c;
+}
+a.trip .status{
+  display:inline-block;
+  margin-top:14px;
+  font-family:'Baloo 2',sans-serif;
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:.06em;
+  padding:4px 12px;
+  border-radius:999px;
+}
+a.trip.kr .status{background:rgba(201,162,77,0.16);color:#e2c07a;}
+a.trip.ye .status{background:rgba(239,106,90,0.16);color:#ef8a7c;}
+.pagefoot{
+  margin-top:44px;
+  color:#726a5a;
+  font-size:12px;
+  font-family:'Baloo 2',sans-serif;
+  letter-spacing:.04em;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="eyebrow">Judd's Field Manuals</p>
+  <h1>旅行計畫</h1>
+  <p class="lead">兩趟正在進行中的旅程規劃，點進去看各自的完整手冊。</p>
+
+  <div class="grid">
+    <a class="trip kr" href="KR/GuideLine.html">
+      <span class="flag">🇰🇷</span>
+      <span class="dates">2026.10.28 — 11.03</span>
+      <h2>首爾</h2>
+      <p>獨旅七天，昌德宮到水原世界遺產，醫美主軸行程，已定案可執行。</p>
+      <span class="status">✅ 已定案</span>
+    </a>
+
+    <a class="trip ye" href="YearEnd/index.html">
+      <span class="flag">🎄</span>
+      <span class="dates">2026.12.24 — 2027.01.02</span>
+      <h2>聖誕＋跨年</h2>
+      <p>泰國、馬來西亞、新加坡三個方案比較中，還沒訂下最終目的地。</p>
+      <span class="status">🤔 方案比較中</span>
+    </a>
+  </div>
+
+  <p class="pagefoot">Made for wandering, one manual at a time.</p>
+</div>
+
+</body>
+</html>
