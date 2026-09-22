@@ -213,6 +213,34 @@ nav.tabs .num{margin-right:6px;}
   font-family:var(--round);font-weight:600;
 }
 
+/* ---------- spot (per-attraction detail block) ---------- */
+.spot{
+  margin:14px 0;
+  padding-top:14px;
+  border-top:1px dashed var(--line);
+}
+.spot:first-of-type{margin-top:12px;}
+.spot-photo{
+  width:100%;aspect-ratio:16/10;object-fit:cover;
+  border-radius:14px;margin-bottom:10px;
+  box-shadow:var(--shadow);
+}
+.spot h5{
+  font-family:var(--disp);font-size:15.5px;margin:0 0 6px;color:var(--ink);
+}
+.spot p.desc{margin:0 0 8px;color:var(--ink-dim);font-size:13.5px;}
+.spot .must,.spot .eat{
+  font-size:13px;margin:0 0 4px;
+  padding-left:2px;
+}
+.spot .must b,.spot .eat b{
+  font-family:var(--round);font-weight:700;
+}
+.spot .must{color:var(--green-deep);}
+.spot .eat{color:var(--red-deep);}
+.spot .must b{color:var(--green-deep);}
+.spot .eat b{color:var(--red-deep);}
+
 /* ---------- pros/cons ---------- */
 .proscons{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media (max-width:520px){.proscons{grid-template-columns:1fr;}}
