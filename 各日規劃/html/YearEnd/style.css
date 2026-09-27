@@ -305,6 +305,29 @@ nav.tabs-local .num{margin-right:6px;}
 }
 .spot-photo-empty .icon{font-size:26px;}
 
+/* ---------- clickable Google Map links on photos ---------- */
+a.spot-photo-link{display:block;position:relative;margin-bottom:10px;}
+a.spot-photo-link .spot-photo{margin-bottom:0;}
+a.spot-photo-link::after{
+  content:"📍 Google Map";
+  position:absolute;right:10px;bottom:10px;
+  background:rgba(20,16,10,0.6);color:#fff;
+  font-family:var(--round);font-weight:600;font-size:11px;
+  padding:4px 10px;border-radius:999px;
+  transition:background .15s ease;
+}
+a.spot-photo-link:hover::after{background:rgba(20,16,10,0.85);}
+a.maplink{border-bottom:1px dotted currentColor;text-decoration:none;}
+a.maplink:hover{color:var(--red-deep);}
+a.b-photo-link{display:block;position:relative;}
+a.b-photo-link::after{
+  content:"📍";
+  position:absolute;right:8px;bottom:8px;
+  background:rgba(20,16,10,0.6);color:#fff;
+  font-size:12px;line-height:1;
+  padding:5px 6px;border-radius:999px;
+}
+
 /* ---------- table wrappers for markdown-style tables ---------- */
 .table-wrap{overflow-x:auto;margin:10px 0;}
 table.info{width:100%;border-collapse:collapse;font-size:13px;min-width:480px;}
